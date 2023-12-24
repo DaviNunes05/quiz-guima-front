@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Quiz Segurança Guima</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+		<link rel="stylesheet" href="index.css" />
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="index.js" type="module"></script>
+	</head>
+
+	<body>
+		<div class="caixa_registro" id="caixa_registro">
+            <img src="https://www.guimaconseco.com.br/images/logo.png" alt="logo_guima">
+			<h1>Quiz Segurança Guima</h1>
+			<form id="form_registro">
+				<label for="nome">Nome:</label>
+				<input
+					type="text"
+					id="nome"
+					name="nome"
+					placeholder="Nome Completo"
+					required
+				/>
+				<label for="matricula">Matrícula(R.E. Guima):</label>
+				<input
+					type="number"
+					id="matricula"
+					name="matricula"
+					placeholder="Ex.: 61223"
+					min="0"
+					required
+				/>
+				<button type="button" id="botao_registrar">Registrar</button>
+			</form>
+		</div>
+		<div id="info-box" class="info-box">
+			<h1>Algumas regras deste Quiz</h1>
+			<ul class="info-list">
+				<li>
+					<span>1</span> - Você terá apenas
+					<span>15 segundos</span> para cada pergunta.
+				</li>
+				<li>
+					<span>2</span> - Depois de selecionar sua resposta, não pode
+					ser desfeito.
+				</li>
+				<li>
+					<span>3</span> - Você não pode selecionar opção depois que o
+					tempo acabar.
+				</li>
+				<li>
+					<span>4</span> - Você não pode sair do Quiz enquanto estiver
+					jogando.
+				</li>
+				<li>
+					<span>5</span> - Você receberá 10 pontos por resposta
+					correta.
+				</li>
+			</ul>
+			<div class="buttons">
+				<button id="sair" class="sair">Sair do Quiz</button>
+				<button id="iniciar" class="iniciar">Iniciar Quiz</button>
+			</div>
+		</div>
+		<div class="pergunta" id="perguntaDiv">
+			<h2 id="pergunta"></h2>
+			<ul id="opcoes"></ul>
+			<div id="temporizador" class="temporizador"></div>
+			<button id="proximo" hidden></button>
+		</div>
+		<div id="caixa_score" class="caixa_score">
+			<h2 id="sucesso">Parabéns</h2>
+			<p id="display-score"><span id="percentual"></span>%</p>
+			<p>
+				Você acertou <span id="respostas_corretas"></span> de
+				<span id="qtd_perguntas"></span> perguntas
+			</p>
+			<p>Em <span id="tempo">0</span> segundos</p>
+		</div>
+	</body>
+	<footer>Desenvolvido por: Davi Nunes e Douglas Nascimento</footer>
+</html>
