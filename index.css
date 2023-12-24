@@ -2,6 +2,12 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f8f8;
     color: #333;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 footer {
@@ -9,88 +15,59 @@ footer {
     font-size: small;
 }
 
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
 .caixa_registro,
 .info-box,
-.pergunta {
+.caixa_pergunta,
+.caixa_score {
     width: 100%;
     box-sizing: border-box;
-    margin: 20px auto;
+    margin: 20px;
     padding: 20px;
     background-color: #f5f5f5;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#info-box, #perguntaDiv {
-    display: none;
-}
-
-.caixa_registro {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     max-width: 400px;
-}
-
-.caixa_registro h1 {
-    font-size: 24px;
     text-align: center;
-    margin-bottom: 20px;
+    background-image: url('https://www.guimaconseco.com.br/images/section-contents-bg.jpg');
+    background-size: 100% 100%; /* Alterado para '100% 100%' */
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-#form_registro {
-    display: flex;
-    flex-direction: column;
-}
-
-#form_registro label {
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-#form_registro input {
-    padding: 8px;
-    margin-bottom: 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-#botão_registrar {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#botao_registrar:hover {
-    background-color: #0056b3;
-}
-
-.buttons {
-    display: flex;
-    flex-direction: column;
-}
-
-.sair, .iniciar, #proximo, #botao_registrar {
+.sair, .iniciar, .botao_registrar {
     width: 100%;
-    padding: 10px;
-    background-color: #8BC03C; /* Nova cor para os botões */
+    padding: 12px;
+    background-color: #8BC03C;
     color: #fff;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.sair:hover, .iniciar:hover, #proximo:hover {
-    background-color: #5e7f21; /* Tom mais escuro para o hover */
+.info-box, .caixa_pergunta, .caixa_score, .temporizador {
+    display: none;
+}
+
+.caixa_registro img {
+    display: block;
+    margin: 0 auto;
 }
 
 .info-box h1 {
-    text-align: center;
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -101,6 +78,7 @@ footer {
 }
 
 .info-list li {
+    text-align: left;
     list-style: none;
     margin-bottom: 15px;
 }
@@ -109,8 +87,35 @@ footer {
     font-weight: bold;
 }
 
-.pergunta h2 {
-    text-align: center;
+.caixa_registro h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form_registro {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_registro label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.form_registro input {
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.caixa_pergunta h2 {
     font-size: 24px;
     margin-bottom: 10px;
 }
@@ -118,43 +123,27 @@ footer {
 #opcoes {
     list-style-type: none;
     padding: 0;
+
 }
 
 #opcoes li {
+    background-color: #eee8e8;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
-    margin-bottom: 10px;
+    height: 50px;
+    margin-bottom: 15px;
     cursor: pointer;
-    border: 2px solid #000000;
-    border-radius: 5px;
-    padding: 8px;
-}
-
-#opcoes li:hover {
-    background-color: #f0f0f0;
-}
-
-#proximo {
-    padding: 10px;
-    background-color: #8BC03C; /* Nova cor para o botão */
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#proximo:hover {
-    background-color: #5e7f21; /* Tom mais escuro para o hover */
-}
-
-#opcoes li {
-    margin-bottom: 10px;
-    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
     transition: background-color 0.5s ease-in-out;
+    margin-bottom: 10px;
+
+    -webkit-box-shadow: 7px 6px 17px -4px rgba(0,0,0,0.57);
+    -moz-box-shadow: 7px 6px 17px -4px rgba(0,0,0,0.57);
+    box-shadow: 7px 6px 17px -4px rgba(0,0,0,0.57);
 }
 
 #opcoes li.resposta-correta {
@@ -165,35 +154,22 @@ footer {
     background-color: #ff8e8e;
 }
 
-#temporizador {
-    display: none;
-    height: 10px;
-    background-color: #4CAF50;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
 .temporizador {
-    height: 100%;
+    height: 10px;
     width: 100%;
     background-color: #4CAF50;
+    margin-bottom: 10px;
     transition: width 1s linear;
-}
-
-#caixa_score {
-    display: none;
-    text-align: center;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 400px;
 }
 
-#caixa_score h2 {
+.caixa_score h2 {
     font-size: 24px;
+    color: #333;
+}
+
+.caixa_score p {
+    font-size: 16px;
     color: #333;
 }
 
@@ -201,11 +177,6 @@ footer {
     font-size: 36px;
     color: #007bff;
     margin: 20px 0;
-}
-
-#caixa_score p {
-    font-size: 16px;
-    color: #333;
 }
 
 #respostas_corretas {
@@ -218,22 +189,14 @@ footer {
     color: #333;
 }
 
-
-
-.caixa_registro img {
-    display: block;
-    margin: 0 auto;
-}
-
 @media only screen and (max-width: 600px) {
     .caixa_registro,
     .info-box,
-    .pergunta {
-        padding: 10px;
+    .caixa_pergunta {
+        padding: 10px;        
     }
 
-    #form_registro input {
-        width: calc(100% - 16px);
+    .form_registro input {
         margin-right: 0;
     }
 
