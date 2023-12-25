@@ -97,6 +97,11 @@ function verificarResposta(index) {
 				resultado.pontuacao = resultado.pontuacao + 10;
 			} else {
 				opcao.classList.add("resposta-incorreta");
+				opcoes.forEach((op, j) => {
+					if (j === pergunta.options.indexOf(pergunta.answer)) {
+						op.classList.add("resposta-correta");
+					}
+				});
 			}
 		}
 	});
