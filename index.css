@@ -1,211 +1,438 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+	font-family: "Arial", sans-serif;
+	background-color: #f8f8f8;
+	color: #333;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
 }
 
 footer {
-    text-align: center;
-    font-size: small;
+	text-align: center;
+	font-size: small;
 }
 
-input[type=number]::-webkit-inner-spin-button { 
-    -webkit-appearance: none;
-    
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
 }
-input[type=number] { 
-   -moz-appearance: textfield;
-   appearance: textfield;
-
+input[type="number"] {
+	-moz-appearance: textfield;
+	appearance: textfield;
 }
 
 .caixa_registro,
 .info-box,
 .caixa_pergunta,
 .caixa_score {
-    width: 100%;
-    box-sizing: border-box;
-    margin: 20px;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    text-align: center;
-    background-image: url('https://www.guimaconseco.com.br/images/section-contents-bg.jpg');
-    background-size: 100% 100%; /* Alterado para '100% 100%' */
-    background-position: center;
-    background-repeat: no-repeat;
+	width: 100%;
+	box-sizing: border-box;
+	margin: 20px;
+	padding: 20px;
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	max-width: 400px;
+	text-align: center;
+	background-image: url("https://www.guimaconseco.com.br/images/section-contents-bg.jpg");
+	background-size: 100% 100%; /* Alterado para '100% 100%' */
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
-.sair, .iniciar, .botao_registrar {
-    width: 100%;
-    padding: 12px;
-    background-color: #8BC03C;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.sair,
+.iniciar,
+.botao_registrar {
+	width: 100%;
+	padding: 12px;
+	background-color: #8bc03c;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
 }
 
-.info-box, .caixa_pergunta, .caixa_score, .temporizador {
-    display: none;
+.info-box,
+.caixa_pergunta,
+.caixa_score,
+.caixa_rank,
+.temporizador {
+	display: none;
 }
 
 .caixa_registro img {
-    display: block;
-    margin: 0 auto;
+	display: block;
+	margin: 0 auto;
 }
 
 .info-box h1 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
 }
 
 .info-list {
-    padding: 0;
+	padding: 0;
 }
 
 .info-list li {
-    text-align: left;
-    list-style: none;
-    margin-bottom: 15px;
+	text-align: left;
+	list-style: none;
+	margin-bottom: 15px;
 }
 
 .info-list span {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .caixa_registro h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+	font-size: 24px;
+	margin-bottom: 20px;
 }
 
 .form_registro {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .form_registro label {
-    font-weight: bold;
-    margin-bottom: 8px;
-    text-align: left;
+	font-weight: bold;
+	margin-bottom: 8px;
+	text-align: left;
 }
 
 .form_registro input {
-    padding: 10px;
-    margin-bottom: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+	padding: 10px;
+	margin-bottom: 12px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
 }
 
 .buttons {
+	display: flex;
+	flex-direction: column;
+}
+
+.caixa_pergunta h2 {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+#opcoes {
+	list-style-type: none;
+	padding: 0;
+}
+
+#opcoes li {
+	background-color: #eee8e8;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	margin-bottom: 15px;
+	cursor: pointer;
+	border: 2px solid #ccc;
+	border-radius: 8px;
+	padding: 12px;
+	transition: background-color 0.5s ease-in-out;
+	margin-bottom: 10px;
+
+	-webkit-box-shadow: 7px 6px 17px -4px rgba(0, 0, 0, 0.57);
+	-moz-box-shadow: 7px 6px 17px -4px rgba(0, 0, 0, 0.57);
+	box-shadow: 7px 6px 17px -4px rgba(0, 0, 0, 0.57);
+}
+
+#opcoes li.resposta-correta {
+	background-color: #8eff8e;
+}
+
+#opcoes li.resposta-incorreta {
+	background-color: #ff8e8e;
+}
+
+.temporizador {
+	height: 10px;
+	width: 100%;
+	background-color: #4caf50;
+	margin-bottom: 10px;
+	transition: width 1s linear;
+	border-radius: 5px;
+}
+
+.caixa_score h2 {
+	font-size: 24px;
+	color: #333;
+}
+
+.caixa_score p {
+	font-size: 16px;
+	color: #333;
+}
+
+#display-score {
+	font-size: 36px;
+	color: #007bff;
+	margin: 20px 0;
+}
+
+#respostas_corretas {
+	font-weight: bold;
+	color: #28a745;
+}
+
+#qtd_perguntas {
+	font-weight: bold;
+	color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.caixa_rank {
+	width: 100%;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+/* Ajuste para o fundo branco gelo mencionado anteriormente */
+.tabela {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilizando as bordas arredondadas da tabela */
+table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+th, td {
+    border: 2px solid #ddd;
+    padding: 5px;
+    text-align: center; /* Centralizando todas as colunas */
+}
+
+th{
+    text-align: center;
+}
+
+/* Adicionando sombra à tabela */
+table {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+
+tr:nth-child(even) {
+    background-color: #8bc03c;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+td.nome {
+    text-align: left;
+}
+
+#div_suprema {
+    font-family: "Montserrat", sans-serif;
+	margin-top: 1em;
+	display: flex;
+    align-items: flex-start;
+}
+
+.podium-places-container {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.podium {
+    display: flex;
+    background-color: white;
+    margin: 2.5em;
+    border-radius: 40px;
+    color: white;
+    flex: 1; /* Ocupa o espaço disponível */
+  }
+
+  .podium .position {
+    border-right-style: solid;
+    border-color: #f5f6fa;
+    border-width: 0.4em;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+.podium.silver .position, .podium.bronze .position {
+    width: 70px;
+}
+
+.podium.gold .position {
+	width: 100px;
+}
+
+.podium .class-information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+	padding: 0.6em;
+    flex-grow: 1
+}
+
+.podium.bronze,
+.podium.silver {
+  height: 10em;
+  margin-top: 5em;
+  width: 100%;
+  margin: 0px;
+}
+
+.podium.silver .position div,
+.podium.bronze .position div {
+  position: absolute;
+  top: 0.4em;
+  left: 0.2em;
+  font-size: 5em;
+}
+
+.podium.gold .position div {
+    position: absolute;
+    top: 0.3em;
+    left: 0.2em;
+    font-size: 8em;
+  }
+
+.podium.bronze .class-information .podium_player,
+.podium.silver .class-information .podium_player {
     display: flex;
     flex-direction: column;
 }
 
-.caixa_pergunta h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-#opcoes {
-    list-style-type: none;
-    padding: 0;
-
-}
-
-#opcoes li {
-    background-color: #eee8e8;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    padding: 12px;
-    transition: background-color 0.5s ease-in-out;
-    margin-bottom: 10px;
-
-    -webkit-box-shadow: 7px 6px 17px -4px rgba(0,0,0,0.57);
-    -moz-box-shadow: 7px 6px 17px -4px rgba(0,0,0,0.57);
-    box-shadow: 7px 6px 17px -4px rgba(0,0,0,0.57);
-}
-
-#opcoes li.resposta-correta {
-    background-color: #8eff8e;
-}
-
-#opcoes li.resposta-incorreta {
-    background-color: #ff8e8e;
-}
-
-.temporizador {
-    height: 10px;
+.podium.bronze .class-information .re,
+.podium.silver .class-information .re {
     width: 100%;
-    background-color: #4CAF50;
-    margin-bottom: 10px;
-    transition: width 1s linear;
-    border-radius: 5px;
+    font-size: 1.2em;
 }
 
-.caixa_score h2 {
-    font-size: 24px;
-    color: #333;
-}
-
-.caixa_score p {
-    font-size: 16px;
-    color: #333;
-}
-
-#display-score {
-    font-size: 36px;
-    color: #007bff;
-    margin: 20px 0;
-}
-
-#respostas_corretas {
+.podium.bronze .class-information .title,
+.podium.silver .class-information .title {
+    text-wrap: wrap;
+    font-size: 1.5em;
     font-weight: bold;
-    color: #28a745;
 }
 
-#qtd_perguntas {
-    font-weight: bold;
-    color: #333;
+.podium.bronze .class-information .podium_info,
+.podium.silver .class-information .podium_info {
+    display: flex;
+    flex-direction: column;
 }
+
+.podium.bronze .class-information .steps,
+.podium.silver .class-information .steps {
+	font-size: 1.5em;
+}
+
+.podium.bronze .class-information .time,
+.podium.silver .class-information .time {
+	font-size: 1.5em;
+}
+
+.podium.gold .class-information .podium_player,
+.podium.gold .class-information .podium_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.podium.gold .class-information .re {
+    width: 100%;
+    font-size: 1.2em;
+}
+
+.podium.gold .class-information .title {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-wrap: wrap;
+}
+
+.podium.gold .class-information .steps {
+	font-size: 1.5em;
+}
+
+.podium.gold .class-information .time {
+    font-size: 1.5em;
+}
+
+.podium.bronze {
+    margin-right: 20px;
+	background-color: #ac7d18;
+	-webkit-box-shadow: 15px 13px 20px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 15px 13px 20px -3px rgba(0,0,0,0.75);
+box-shadow: 15px 13px 20px -3px rgba(0,0,0,0.75);
+}
+
+.podium.silver {
+    margin-left: 20px;
+	background-color: #c1c1c1;
+	-webkit-box-shadow: -15px 13px 20px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: -15px 13px 20px -3px rgba(0,0,0,0.75);
+box-shadow: -15px 13px 20px -3px rgba(0,0,0,0.75);
+}
+
+.podium.gold {
+    margin: 5px 20px;
+	background-color: #fec107;
+	height: 15em;
+	width: 100em;
+	-webkit-box-shadow: 1px 35px 20px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 35px 20px -3px rgba(0,0,0,0.75);
+box-shadow: 1px 35px 20px -3px rgba(0,0,0,0.75);
+}
+
 
 @media only screen and (max-width: 600px) {
-    .caixa_registro,
-    .info-box,
-    .caixa_pergunta {
-        padding: 10px;        
-    }
+	.caixa_registro,
+	.info-box,
+	.caixa_pergunta {
+		padding: 10px;
+	}
 
-    .form_registro input {
-        margin-right: 0;
-    }
+	.form_registro input {
+		margin-right: 0;
+	}
 
-    .buttons {
-        flex-direction: row;
-    }
+	.buttons {
+		flex-direction: row;
+	}
 
-    .sair, .iniciar, #proximo {
-        width: 48%;
-        margin-right: 4%;
-    }
+	.sair,
+	.iniciar,
+	#proximo {
+		width: 48%;
+		margin-right: 4%;
+	}
 }
