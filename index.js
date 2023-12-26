@@ -19,6 +19,11 @@ const registrarBtn = document.getElementById("botao_registrar");
 const sairQuizBtn = document.getElementById("sair");
 const iniciarBtn = document.getElementById("iniciar");
 
+// AUDIO
+let somAcerto   = document.querySelector('#somAcerto')
+let somErro     = document.querySelector('#somErro')
+let somAplausos = document.querySelector('#somAplausos')
+
 let resultado = {};
 let perguntaAtual = 0;
 let temporizador;
@@ -93,9 +98,11 @@ function verificarResposta(index) {
 		if (i === index) {
 			respostaSelecionada = true;
 			if (pergunta.options[index] === pergunta.answer) {
+				somAcerto.play()
 				opcao.classList.add("resposta-correta");
 				resultado.pontuacao = resultado.pontuacao + 10;
 			} else {
+				somErro.play()
 				opcao.classList.add("resposta-incorreta");
 				opcoes.forEach((op, j) => {
 					if (j === pergunta.options.indexOf(pergunta.answer)) {
