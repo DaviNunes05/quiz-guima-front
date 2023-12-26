@@ -192,36 +192,12 @@ input[type="number"] {
 	color: #333;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-.caixa_rank {
-	width: 100%;
-    background-color: #f5f5f5;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-/* Ajuste para o fundo branco gelo mencionado anteriormente */
 .tabela {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
     width: min(22rem, 25rem);
+    margin-bottom: 2.5rem; /* Adjust margin as needed */
 }
 
 .tabela li {
@@ -280,6 +256,7 @@ th {
         min-width: 20rem;
     }
 }
+
 
 
 tr:nth-child(even) {
