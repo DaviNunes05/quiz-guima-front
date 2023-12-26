@@ -650,9 +650,18 @@ box-shadow: 1px 35px 20px -3px rgba(0,0,0,0.75);
     flex-direction: row;
   }
   
-  .podium.silver .position .podium-image {
-  background-image: url('images/imagem-de-prata.png');
-}
+  .podium.silver .position::before {
+    content: '';
+    background-image: url('caminho/para/sua/imagem-de-prata.png');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
 
   .sair,
   .iniciar,
