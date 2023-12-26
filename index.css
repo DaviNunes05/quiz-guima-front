@@ -649,6 +649,10 @@ box-shadow: 1px 35px 20px -3px rgba(0,0,0,0.75);
   .buttons {
     flex-direction: row;
   }
+  
+  .podium.silver .position .podium-image {
+  background-image: url('images/imagem-de-prata.png');
+}
 
   .sair,
   .iniciar,
