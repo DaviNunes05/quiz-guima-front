@@ -181,7 +181,7 @@ function fim(resultado) {
 	tempoElement.textContent = resultado.tempo;
 	caixa_pergunta.style.display = "none";
 	caixa_score.style.display = "block";
-	somAplausos.play()
+
 
 	axios
 		.post(
@@ -194,6 +194,7 @@ function fim(resultado) {
 		.catch((error) => {
 			console.error("Erro ao enviar dados:", error);
 		});
+	somAplausos.play()
 }
 
 async function rank(resultado) {
