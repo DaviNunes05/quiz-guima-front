@@ -218,30 +218,67 @@ th {
 }
 /* Ajuste para o fundo branco gelo mencionado anteriormente */
 .tabela {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: min(22rem, 25rem);
+}
+
+.tabela li {
+    display: flex;
+    background-color: #112f27;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 1rem;
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.tabela li:hover {
+    background-color: hsl(164, 47%, 25%);
+}
+
+.tabela li span:first-child {
+    font-size: 1rem;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.tabela li img {
+    display: none;
+}
+
+.tabela li p {
+    width: 100%;
     text-align: center;
+    font-size: 1rem;
+    word-break: break-all;
 }
 
-/* Estilizando as bordas arredondadas da tabela */
-table {
-    border-radius: 10px;
-    overflow: hidden;
+.tabela li span:last-child {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #03b169;
+    width: min(30%, 20rem);
 }
 
+@media (min-width: 600px) {
+    .tabela ul {
+        width: 100%;
+    }
 
-th, td {
-    border: 2px solid #ddd;
-    padding: 5px;
-    text-align: center; /* Centralizando todas as colunas */
-}
+    .tabela li img {
+        display: flex;
+        width: 2.8rem;
+        height: 2.8rem;
+        border-radius: 50%;
+    }
 
-th{
-    text-align: center;
-}
-
-/* Adicionando sombra à tabela */
-table {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    .tabela li p {
+        min-width: 20rem;
+    }
 }
 
 
