@@ -464,7 +464,6 @@ td.nome {
     #732100
   );
     margin-right: 20px;
-	background-color: #ac7d18;
 	-webkit-box-shadow: 15px 13px 20px -3px rgba(0,0,0,0.75);
 -moz-box-shadow: 15px 13px 20px -3px rgba(0,0,0,0.75);
 box-shadow: 15px 13px 20px -3px rgba(0,0,0,0.75);
@@ -547,7 +546,6 @@ box-shadow: 15px 13px 20px -3px rgba(0,0,0,0.75);
     #a1a1a1
   );
     margin-left: 20px;
-	background-color: #c1c1c1;
 	-webkit-box-shadow: -15px 13px 20px -3px rgba(0,0,0,0.75);
 -moz-box-shadow: -15px 13px 20px -3px rgba(0,0,0,0.75);
 box-shadow: -15px 13px 20px -3px rgba(0,0,0,0.75);
@@ -629,7 +627,6 @@ box-shadow: -15px 13px 20px -3px rgba(0,0,0,0.75);
     #452100
   );
     margin: 5px 20px;
-	background-color: #fec107;
 	height: 15em;
 	width: 100em;
 	-webkit-box-shadow: 1px 35px 20px -3px rgba(0,0,0,0.75);
