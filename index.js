@@ -161,7 +161,7 @@ function registrar() {
 
 	if (resultado.nome == "ADMIN") {
 		caixa_registro.style.display = "none";
-		caixa_rank.style.display = "block";
+		caixa_rank.style.display = "flex";
 		rank(resultado);
 	} else {
 		if (resultado.nome && resultado.re) {
@@ -250,6 +250,7 @@ async function rank(resultado) {
     <thead>
         <tr>
             <th>Posição</th>
+			<th>R.E.</th>
             <th>Nome</th>
             <th>Pontuação</th>
             <th>Tempo</th>
@@ -261,7 +262,8 @@ async function rank(resultado) {
 				const row = document.createElement("tr");
 				row.innerHTML = `
             <td>${index + 4}</td>
-            <td class="nome">${resultado.re} - ${resultado.nome}</td>
+			<td>${resultado.re}</td>
+            <td class="nome"> ${resultado.nome}</td>
             <td>${resultado.pontuacao}</td>
             <td>${resultado.tempo}</td>
         `;
