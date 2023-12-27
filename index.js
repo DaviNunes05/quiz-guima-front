@@ -101,9 +101,11 @@ function verificarResposta(index) {
 				somAcerto.play()
 				opcao.classList.add("resposta-correta");
 				resultado.pontuacao = resultado.pontuacao + 10;
+				resultado.p_corretas = pergunta.options[index];
 			} else {
 				somErro.play()
 				opcao.classList.add("resposta-incorreta");
+				resultado.p_incorretas = pergunta.options[index];
 				opcoes.forEach((op, j) => {
 					if (j === pergunta.options.indexOf(pergunta.answer)) {
 						op.classList.add("resposta-correta");
@@ -154,6 +156,8 @@ function registrar() {
 	resultado.nome = document.getElementById("nome").value.toUpperCase();
 	resultado.re = document.getElementById("matricula").value;
 	resultado.pontuacao = 0;
+	resultado.p_corretas = [];
+	resultado.p_incorretas = [];
 
 	if (resultado.nome == "ADMIN") {
 		caixa_registro.style.display = "none";
