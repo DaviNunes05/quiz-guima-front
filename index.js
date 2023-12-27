@@ -101,11 +101,11 @@ function verificarResposta(index) {
 				somAcerto.play()
 				opcao.classList.add("resposta-correta");
 				resultado.pontuacao = resultado.pontuacao + 10;
-				resultado.p_corretas.push(pergunta.options[index]);
+				resultado.p_corretas.push(pergunta.question);
 			} else {
 				somErro.play()
 				opcao.classList.add("resposta-incorreta");
-				resultado.p_incorretas.push(pergunta.options[index]);
+				resultado.p_incorretas.push(pergunta.question);
 				opcoes.forEach((op, j) => {
 					if (j === pergunta.options.indexOf(pergunta.answer)) {
 						op.classList.add("resposta-correta");
