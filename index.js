@@ -5,8 +5,6 @@ const caixa_info = document.getElementById("info-box");
 const caixa_pergunta = document.getElementById("perguntaDiv");
 const caixa_score = document.getElementById("caixa_score");
 const caixa_rank = document.getElementById("caixa_rank");
-const tabelaElement = document.getElementById("tabela");
-const podiumElement = document.getElementById("podium");
 const perguntaElement = document.getElementById("pergunta");
 const opcoesElement = document.getElementById("opcoes");
 const temporizadorElement = document.getElementById("temporizador");
@@ -14,15 +12,15 @@ const percentualElement = document.getElementById("percentual");
 const respostasCorretasElement = document.getElementById("respostas_corretas");
 const qtdPerguntasElement = document.getElementById("qtd_perguntas");
 const tempoElement = document.getElementById("tempo");
+const contadorElement = document.getElementById("contador");
 const proximoBtn = document.getElementById("proximo");
 const registrarBtn = document.getElementById("botao_registrar");
 const sairQuizBtn = document.getElementById("sair");
 const iniciarBtn = document.getElementById("iniciar");
 
-// AUDIO
-let somAcerto   = document.querySelector('#somAcerto')
-let somErro     = document.querySelector('#somErro')
-let somAplausos = document.querySelector('#somAplausos')
+let somAcerto = document.querySelector("#somAcerto");
+let somErro = document.querySelector("#somErro");
+let somAplausos = document.querySelector("#somAplausos");
 
 let resultado = {};
 let perguntaAtual = 0;
@@ -33,7 +31,7 @@ function formatarData() {
 	const dataAtual = new Date();
 
 	const dia = String(dataAtual.getDate()).padStart(2, "0");
-	const mes = String(dataAtual.getMonth() + 1).padStart(2, "0"); // Lembrando que os meses começam do zero
+	const mes = String(dataAtual.getMonth() + 1).padStart(2, "0");
 	const ano = String(dataAtual.getFullYear()).slice(-2);
 
 	const dataFormatada = `${dia}${mes}${ano}`;
@@ -42,12 +40,12 @@ function formatarData() {
 }
 
 function iniciarTemporizador() {
-	let tempoRestante = 15;
+	let tempoRestante = 60;
 
 	temporizador = setInterval(() => {
 		tempoRestante--;
 
-		temporizadorElement.style.width = (tempoRestante / 15) * 100 + "%";
+		temporizadorElement.style.width = (tempoRestante / 60) * 100 + "%";
 
 		if (tempoRestante <= 0) {
 			clearInterval(temporizador);
@@ -98,12 +96,12 @@ function verificarResposta(index) {
 		if (i === index) {
 			respostaSelecionada = true;
 			if (pergunta.options[index] === pergunta.answer) {
-				somAcerto.play()
+				somAcerto.play();
 				opcao.classList.add("resposta-correta");
 				resultado.pontuacao = resultado.pontuacao + 10;
 				resultado.p_corretas.push(pergunta.question);
 			} else {
-				somErro.play()
+				somErro.play();
 				opcao.classList.add("resposta-incorreta");
 				resultado.p_incorretas.push(pergunta.question);
 				opcoes.forEach((op, j) => {
@@ -186,7 +184,6 @@ function fim(resultado) {
 	caixa_pergunta.style.display = "none";
 	caixa_score.style.display = "block";
 
-
 	axios
 		.post(
 			`https://quizz-guima.onrender.com/${formatarData()}/resultado`,
@@ -198,7 +195,7 @@ function fim(resultado) {
 		.catch((error) => {
 			console.error("Erro ao enviar dados:", error);
 		});
-	somAplausos.play()
+	somAplausos.play();
 }
 
 async function rank(resultado) {
@@ -216,11 +213,14 @@ async function rank(resultado) {
 
 	try {
 		const resultados = await bd();
+		let qtd_resultados;
 
 		if (resultados === null) {
 			console.log("Aguardando resultados");
 			setTimeout(() => rank(resultado), 5000);
 		} else {
+			qtd_resultados = resultados.resultados.length;
+			contadorElement.innerText = `${qtd_resultados} resultado(s)`;
 			const resultadosOrdenados = resultados.resultados.sort((a, b) => {
 				if (b.pontuacao !== a.pontuacao) {
 					return b.pontuacao - a.pontuacao;
@@ -232,41 +232,42 @@ async function rank(resultado) {
 			resultadosOrdenados.slice(0, 3).forEach((resultado, index) => {
 				const ranks = ["gold", "silver", "bronze"];
 				document.querySelector(
-					`#div_suprema > div > div.podium.${ranks[index]} > div.class-information > div.podium_player > div.re`
+					`#lugar > div.podium.${ranks[index]} > div.class-information > div.podium_player > div.re`
 				).textContent = `R.E.: ${resultado.re}`;
 				document.querySelector(
-					`#div_suprema > div > div.podium.${ranks[index]} > div.class-information > div.podium_player > div.title`
+					`#lugar > div.podium.${ranks[index]} > div.class-information > div.podium_player > div.title`
 				).textContent = `${resultado.nome}`;
 				document.querySelector(
-					`#div_suprema > div > div.podium.${ranks[index]} > div.class-information > div.podium_info > div.steps`
+					`#lugar > div.podium.${ranks[index]} > div.class-information > div.podium_info > div.steps`
 				).textContent = `Pontos: ${resultado.pontuacao}`;
 				document.querySelector(
-					`#div_suprema > div > div.podium.${ranks[index]} > div.class-information > div.podium_info > div.time`
+					`#lugar > div.podium.${ranks[index]} > div.class-information > div.podium_info > div.time`
 				).textContent = `Tempo: ${resultado.tempo} Seg.`;
 			});
 			//============================F===================================
+
 			const table = document.createElement("table");
 			table.innerHTML = `
-    <thead>
-        <tr>
-            <th>Posição</th>
-			<th>R.E.</th>
-            <th>Nome</th>
-            <th>Pontuação</th>
-            <th>Tempo</th>
-        </tr>
-    </thead>
-    <tbody>
-			`;
+								<thead>
+									<tr>
+										<th>Posição</th>
+										<th>R.E.</th>
+										<th>Nome</th>
+										<th>Pontuação</th>
+										<th>Tempo</th>
+									</tr>
+								</thead>
+								<tbody>
+							`;
 			resultadosOrdenados.slice(3).forEach((resultado, index) => {
 				const row = document.createElement("tr");
 				row.innerHTML = `
-            <td>${index + 4}</td>
-			<td>${resultado.re}</td>
-            <td class="nome"> ${resultado.nome}</td>
-            <td>${resultado.pontuacao}</td>
-            <td>${resultado.tempo}</td>
-        `;
+								<td>${index + 4}</td>
+								<td>${resultado.re}</td>
+								<td class="nome"> ${resultado.nome}</td>
+								<td>${resultado.pontuacao}</td>
+								<td>${resultado.tempo}</td>
+								`;
 				table.querySelector("tbody").appendChild(row);
 			});
 			table.innerHTML += `</tbody>`;
@@ -283,7 +284,6 @@ async function rank(resultado) {
 		console.error("Erro", error.message);
 		setTimeout(() => rank(resultado), 5000);
 	}
-
 }
 
 registrarBtn.addEventListener("click", registrar);

@@ -1,4 +1,11 @@
+html {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
 body {
+	width: 100%;
 	font-family: "Arial", sans-serif;
 	background-color: #f8f8f8;
 	color: #333;
@@ -193,102 +200,67 @@ input[type="number"] {
 }
 
 .caixa_rank {
+	background: url("https://www.guimaconseco.com.br/images/logo.png");
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-size: 17%;
 	width: 100%;
 	background-color: #ebe0e0;
-	padding: 20px;
 	border: 1px solid #ccc;
 	border-radius: 10px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 	display: none;
+	align-items: center;
 	flex-wrap: nowrap;
 	flex-direction: column;
-	align-items: stretch;
-}
-
-table {
-	width: 100%;
-	text-align: center;
-	border-collapse: collapse;
-}
-
-.tabela .nome {
-	text-align: start;
-}
-
-.tabela {
-	width: 100%;
-	font-family: sans-serif;
-	border-collapse: collapse;
-	margin: 25px 0;
-	font-size: 0.9em;
-	border-radius: 10px 10px 0 0;
-	overflow: hidden;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.tabela thead tr {
-	background-color: #009879;
-	color: #ffffff;
-	font-weight: bold;
-}
-
-.tabela th,
-.tabela td {
-	padding: 12px 15px;
-}
-
-.tabela tbody tr:nth-of-type(even) {
-	background-color: #cfd6cb;
-}
-
-.tabela tbody tr:last-of-type {
-	border-bottom: 2px solid #009879;
-}
-
-.tabela tbody tr:hover {
-	font-weight: bold;
-	color: #009879;
 }
 
 #div_suprema {
-	width: 100%;
+	width: 95%;
 	font-family: "Montserrat", sans-serif;
-	margin-top: 1em;
 	display: flex;
-	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
 }
 
 .podium-places-container {
 	display: flex;
-	align-items: baseline;
+	align-items: flex-end;
 	width: 100%;
-	justify-content: space-between;
+	justify-content: center;
 }
 
 .podium {
+	font-weight: bold;
+	height: 9em;
+	width: 95%;
 	display: flex;
 	background-color: white;
-	margin: 2.5em;
+	/* margin: 2.5em 0em; */
 	border-radius: 40px;
 	color: white;
-	flex: 1; /* Ocupa o espaço disponível */
+}
+
+#lugar {
+	display: flex;
+	border-color: red;
+	width: 100%;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	align-items: center;
 }
 
 .podium .position {
-	border-right-style: solid;
-	border-color: #f5f6fa;
-	border-width: 0.4em;
-	position: relative;
-	flex-shrink: 0;
-}
-
-.podium.silver .position,
-.podium.bronze .position {
+	font-size: 80px;
+	display: flex;
 	width: 70px;
+	text-align: center;
+	flex-direction: column;
+	justify-content: space-evenly;
 }
 
-.podium.gold .position {
-	width: 100px;
+.podium .position .gold {
+	font-size: 100px;
 }
 
 .podium .class-information {
@@ -297,89 +269,11 @@ table {
 	justify-content: space-around;
 	padding: 0.6em;
 	flex-grow: 1;
+	font-size: 1.2rem;
 }
 
-.podium.bronze,
-.podium.silver {
-	height: 10em;
-	margin-top: 5em;
-	width: 100%;
-	margin: 0px;
-}
-
-.podium.silver .position div,
-.podium.bronze .position div {
-	position: absolute;
-	top: 0.4em;
-	left: 0.2em;
-	font-size: 5em;
-}
-
-.podium.gold .position div {
-	position: absolute;
-	top: 0.3em;
-	left: 0.2em;
-	font-size: 8em;
-}
-
-.podium.bronze .class-information .podium_player,
-.podium.silver .class-information .podium_player {
-	display: flex;
-	flex-direction: column;
-}
-
-.podium.bronze .class-information .re,
-.podium.silver .class-information .re {
-	width: 100%;
-	font-size: 1.2em;
-}
-
-.podium.bronze .class-information .title,
-.podium.silver .class-information .title {
-	text-wrap: wrap;
-	font-size: 1.5em;
-	font-weight: bold;
-}
-
-.podium.bronze .class-information .podium_info,
-.podium.silver .class-information .podium_info {
-	display: flex;
-	flex-direction: column;
-}
-
-.podium.bronze .class-information .steps,
-.podium.silver .class-information .steps {
-	font-size: 1.5em;
-}
-
-.podium.bronze .class-information .time,
-.podium.silver .class-information .time {
-	font-size: 1.5em;
-}
-
-.podium.gold .class-information .podium_player,
-.podium.gold .class-information .podium_info {
-	display: flex;
-	flex-direction: column;
-}
-
-.podium.gold .class-information .re {
-	width: 100%;
-	font-size: 1.2em;
-}
-
-.podium.gold .class-information .title {
-	font-size: 1.5em;
-	font-weight: bold;
-	text-wrap: wrap;
-}
-
-.podium.gold .class-information .steps {
-	font-size: 1.5em;
-}
-
-.podium.gold .class-information .time {
-	font-size: 1.5em;
+.podium.gold .class-information:nth-child(2) {
+	font-size: 1.4rem;
 }
 
 .podium.bronze {
@@ -451,7 +345,6 @@ table {
 		#ca7345 84%,
 		#732100
 	);
-	margin-right: 20px;
 	-webkit-box-shadow: 15px 13px 20px -3px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 15px 13px 20px -3px rgba(0, 0, 0, 0.75);
 	box-shadow: 15px 13px 20px -3px rgba(0, 0, 0, 0.75);
@@ -526,13 +419,13 @@ table {
 		#dedede 84%,
 		#a1a1a1
 	);
-	margin-left: 20px;
 	-webkit-box-shadow: -15px 13px 20px -3px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: -15px 13px 20px -3px rgba(0, 0, 0, 0.75);
 	box-shadow: -15px 13px 20px -3px rgba(0, 0, 0, 0.75);
 }
 
 .podium.gold {
+	height: 200px;
 	color: rgba(0, 0, 0, 0.72);
 	text-decoration: none;
 	font-weight: bold;
@@ -601,12 +494,70 @@ table {
 		#ffde45 84%,
 		#452100
 	);
-	margin: 5px 20px;
-	height: 15em;
-	width: 100em;
 	-webkit-box-shadow: 1px 35px 20px -3px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 1px 35px 20px -3px rgba(0, 0, 0, 0.75);
 	box-shadow: 1px 35px 20px -3px rgba(0, 0, 0, 0.75);
+}
+
+.contador {
+	font-size: large;
+	font-weight: bold;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	flex-direction: row-reverse;
+}
+.contador p {
+	margin-bottom: 0px;
+	margin-right: 40px;
+}
+
+table {
+	font-size: 1.2rem;
+	padding: 10px;
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+.tabela .nome {
+	text-align: start;
+}
+
+.tabela {
+	width: 90%;
+	font-family: sans-serif;
+	font-weight: bold;
+	border-collapse: collapse;
+	margin: 25px 0;
+	font-size: 0.9em;
+	border-radius: 10px 10px 0 0;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.tabela thead tr {
+	background-color: #009879;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.tabela th,
+.tabela td {
+	padding: 12px 15px;
+}
+
+.tabela tbody tr:nth-of-type(even) {
+	background-color: #cfd6cb;
+}
+
+.tabela tbody tr:last-of-type {
+	border-bottom: 2px solid #009879;
+}
+
+.tabela tbody tr:hover {
+	font-weight: bold;
+	color: #009879;
 }
 
 table::-webkit-scrollbar {
@@ -636,19 +587,6 @@ table::-webkit-scrollbar-track {
 
 	.buttons {
 		flex-direction: row;
-	}
-
-	.podium.silver .position::before {
-		content: "";
-		background-image: url("caminho/para/sua/imagem-de-prata.png");
-		background-size: cover;
-		background-position: center;
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
 	}
 
 	.sair,

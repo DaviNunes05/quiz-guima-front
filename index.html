@@ -5,7 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<title>Quiz Segurança Guima</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+		/>
 		<link rel="stylesheet" href="index.css" />
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 		<script src="index.js" type="module"></script>
@@ -13,8 +16,11 @@
 
 	<body>
 		<div class="caixa_registro" id="caixa_registro">
-            <img src="https://www.guimaconseco.com.br/images/logo.png" alt="logo_guima">
-			<h1>Quiz Segurança Guima</h1>
+			<img
+				src="https://www.guimaconseco.com.br/images/logo.png"
+				alt="logo_guima"
+			/>
+			<h1>Quiz Guima</h1>
 			<form id="form_registro" class="form_registro">
 				<label for="nome">Nome:</label>
 				<input
@@ -33,7 +39,13 @@
 					min="0"
 					required
 				/>
-				<button type="button" id="botao_registrar" class="botao_registrar">Registrar</button>
+				<button
+					type="button"
+					id="botao_registrar"
+					class="botao_registrar"
+				>
+					Registrar
+				</button>
 			</form>
 		</div>
 		<div id="info-box" class="info-box">
@@ -80,67 +92,85 @@
 			</p>
 			<p>Em <span id="tempo">0</span> segundos</p>
 		</div>
-        <div class="caixa_rank" id="caixa_rank">
+		<div class="caixa_rank" id="caixa_rank">
 			<div id="div_suprema">
 				<div class="podium-places-container">
-					<div class="podium silver">
-						<div class="position">
-							<div class="podium-image"></div> <!-- Adicione esta linha -->
-							<div>2</div>
+					<div id="lugar">
+						<div class="coroa">
+							<img src="./images/silver sf.png" alt="" />
 						</div>
-						<div class="class-information">
-							<div class="podium_player">
-								<div class="re"></div>
-								<div class="title"></div>
+						<div class="podium silver">
+							<div class="position">
+								<div>2</div>
 							</div>
-							<div class="podium_info">
-								<div class="steps"></div>
-								<div class="time"></div>
-							</div>
-						</div>
-					</div>
-					<div class="podium gold">
-						<div class="position">
-							<div>1</div>
-						</div>
-						<div class="class-information">
-							<div class="podium_player">
-								<div class="re"></div>
-								<div class="title"></div>
-							</div>
-							<div class="podium_info">
-								<div class="steps"></div>
-								<div class="time"></div>
+							<div class="class-information">
+								<div class="podium_player">
+									<div class="re"></div>
+									<div class="title"></div>
+								</div>
+								<div class="podium_info">
+									<div class="steps"></div>
+									<div class="time"></div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="podium bronze">
-						<div class="position">
-							<div>3</div>
+					<div id="lugar">
+						<div class="coroa">
+							<img src="./images/ouro sf.png" alt="" />
 						</div>
-						<div class="class-information">
-							<div class="podium_player">
-								<div class="re"></div>
-								<div class="title"></div>
+						<div class="podium gold">
+							<div class="position">
+								<div class="gold">1</div>
 							</div>
-							<div class="podium_info">
-								<div class="steps"></div>
-								<div class="time"></div>
+							<div class="class-information">
+								<div class="podium_player">
+									<div class="re"></div>
+									<div class="title"></div>
+								</div>
+								<div class="podium_info">
+									<div class="steps"></div>
+									<div class="time"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="lugar">
+						<div class="coroa">
+							<img src="./images/bronz sf.png" alt="" />
+						</div>
+						<div class="podium bronze">
+							<div class="position">
+								<div>3</div>
+							</div>
+							<div class="class-information">
+								<div class="podium_player">
+									<div class="re"></div>
+									<div class="title"></div>
+								</div>
+								<div class="podium_info">
+									<div class="steps"></div>
+									<div class="time"></div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<div class="contador">
+					<p id="contador"></p>
+				</div>
 			</div>
-            <div class="tabela" id="tabela">
-            </div>
-        </div>
-<audio preload src="./som/positive.mp3" id='somAcerto'></audio>
-<audio preload src="./som/negative.mp3" id='somErro'></audio>
-<audio preload src="./som/aplausos.mp3" id='somAplausos'></audio>
+			<div class="tabela" id="tabela"></div>
+		</div>
+		<audio preload src="./som/positive.mp3" id="somAcerto"></audio>
+		<audio preload src="./som/negative.mp3" id="somErro"></audio>
+		<audio preload src="./som/aplausos.mp3" id="somAplausos"></audio>
 	</body>
-    <footer>
-          <p>
-            <strong>Copyright &copy; 2023 Davi Nunes / Douglas Nascimento</strong>    
-          </p>
-        </footer>
+	<footer>
+		<p>
+			<strong
+				>Copyright &copy; 2023 Davi Nunes / Douglas Nascimento</strong
+			>
+		</p>
+	</footer>
 </html>
