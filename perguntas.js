@@ -49,7 +49,12 @@ let questions = [
         category: "Segurança do Trabalho",
         type: "multiple",
         difficulty: "médio",
-        question: "Os Principais fatores que contribuem para os altos índices de acidente com eletricidade são:",
+        question: "Os Principais fatores que contribuem para os altos índices de acidente com eletricidade são:"
+            "I – Manutenção por pessoa com competência inadequadas;"
+            "II – Processos de Contenção dos riscos inadequados;"
+            "III – Não cumprimento das normas e padrões ;"
+            "IV – Arquivos Técnicos desatualizados ou inexistentes;"
+            "Estão corretos os itens:",
         answer: "Todas estão Corretas.",
         options: [
             "I, II e IV",
