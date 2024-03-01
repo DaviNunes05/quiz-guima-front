@@ -40,12 +40,12 @@ function formatarData() {
 }
 
 function iniciarTemporizador() {
-	let tempoRestante = 60;
+	let tempoRestante = 45;
 
 	temporizador = setInterval(() => {
 		tempoRestante--;
 
-		temporizadorElement.style.width = (tempoRestante / 60) * 100 + "%";
+		temporizadorElement.style.width = (tempoRestante / 45) * 100 + "%";
 
 		if (tempoRestante <= 0) {
 			clearInterval(temporizador);
